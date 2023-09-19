@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Little Drumkit</title>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <div class="keys">
@@ -58,9 +59,11 @@
     <script>
       window.addEventListener('keydown', (e) => {
         const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+        const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
         if (!audio) return;
         audio.currentTime = 0; // restart audio
         audio.play();
+        console.log(key);
       });
     </script>
   </body>
